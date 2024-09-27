@@ -61,6 +61,10 @@
 
 ### ***Screenshots***
 
+## ERD
+
+![image](https://github.com/user-attachments/assets/e60a53b1-d00b-44b1-bf60-86fab8e407a1)
+
 ##### No screenshots yet
 
 
