@@ -32,8 +32,21 @@ const upload = multer({ storage: storage }).single('poster'); // Only handling t
 exports.movie_create_get = (req, res) => {
   res.render("movie/add");
 }
-exports.movie_details = (req, res) => {
-  res.render('movie/detail'); // Assuming video-popup.ejs exists in your views folder
+exports.movie_details = async (req, res) => {
+  try {
+    const movieId = req.query.id; // Get the ID from query params
+    if (!movieId) {
+        return res.status(400).send('Movie ID is required'); // Handle missing ID
+    }
+    const movie = await Movie.findById(movieId);
+    if (!movie) {
+        return res.status(404).send('Movie not found'); // Handle case where movie is not found
+    }
+    res.json(movie); // Send the movie details back to the client
+} catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+}
 };
 
 

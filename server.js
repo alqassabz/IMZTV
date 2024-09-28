@@ -2,48 +2,57 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
 
 // Require and Initialize dotenv
 require('dotenv').config();
 
 // Serve static files like CSS, images, etc.
-app.use(express.static("public"))
+app.use(express.static("public"));
 
+// Connect to the database (assuming you have this set up correctly)
 const db = require('./config/db');
+const { Movie } = require('./models/Movie'); // Adjust the path according to your project structure
 
-// Mock movie data
-const getMoviesFromImages = () => {
+// Function to get movies with images
+const getMoviesWithImages = async () => {
+  const movies = await Movie.find(); // Fetch movies from the database
   const imageDir = path.join(__dirname, 'public/images'); // Path to your images directory
   const files = fs.readdirSync(imageDir); // Read the directory
 
-  // Create an array of movie objects
-  return files.map(file => ({
-    title: path.parse(file).name, // Extract title from filename (without extension)
-    poster: `/images/${file}` // Construct image URL
-  }));
+  // Create an array of movie objects, combining DB data with image paths
+  return movies.map(movie => {
+    const imageFile = files.find(file => path.parse(file).name === movie.title); // Find corresponding image file
+    return {
+      ...movie.toObject(), // Convert Mongoose Document to plain JavaScript object
+      poster: imageFile ? `/images/${imageFile}` : null // Construct image URL if found
+    };
+  });
 };
-
-// Route to render movies
-app.get('/movies', (req, res) => {
-  const movies = getMoviesFromImages(); // Get movies dynamically
-  res.render('movie/index', { movies }); // Render your EJS page with movies
-});
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 
+// Route to render movies
+app.get('/movie/detail', async (req, res) => {
+  const movies = await getMoviesWithImages(); // Get the movies with images
+  const movieId = req.query.id; // Get the movie ID from the query
+  const movie = movies.find(m => m._id.toString() === movieId); // Find the movie based on the ID
+
+  if (movie) {
+    res.render('movie/detail', { movie }); // Pass the movie to the EJS template
+  } else {
+    res.status(404).send('Movie not found'); // Handle not found case
+  }
+});
+
 // Serve the home route and render the index.ejs
-app.get('/', (req, res) => {
-  const movies = getMoviesFromImages(); // Call the function to get movies
+app.get('/', async (req, res) => {
+  const movies = await getMoviesWithImages(); // Call the function to get movies
   res.render('index', { movies }); // Render the index view with movies
 });
 
 // Start the server
 const PORT = process.env.PORT || 4050;
-
-const movieRouter = require("./routes/movie");
-app.use('/movie', movieRouter);
-
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

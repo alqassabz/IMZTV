@@ -11,7 +11,7 @@
         <button class="carousel-arrow left-arrow" onclick="scrollLeft()">&#10094;</button>
         <div class="carousel">
             <div class="carousel-track">
-                <% movies.forEach(movie => { %>
+                <% movies.forEach(function(movie){ %>
                     <div class="carousel-item">
                       <a href="/movie/detail?id=<%= movie._id %>">
                         <img src="<%= movie.poster %>" alt="<%= movie.title %>">
