@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Carousel</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="carousel-container">
+        <button class="carousel-arrow left-arrow" onclick="scrollLeft()">&#10094;</button>
+        <div class="carousel">
+            <div class="carousel-track">
+                <% movies.forEach(movie => { %>
+                    <div class="carousel-item">
+                      <a href="/movie/detail?id=<%= movie._id %>">
+                        <img src="<%= movie.poster %>" alt="<%= movie.title %>">
+                        </a>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        <button class="carousel-arrow right-arrow" onclick="scrollRight()">&#10095;</button>
+    </div>
+    <script>
+     const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const nextButton = document.querySelector('.right-arrow');
+const prevButton = document.querySelector('.left-arrow');
+
+let currentIndex = 0;
+
+// Function to move to the next image
+function scrollRight() {
+    if (currentIndex < items.length - 7) {
+        currentIndex++; // Prevent going beyond the last image
+    }
+    updateCarousel();
+}
+
+// Function to move to the previous image
+function scrollLeft() {
+    if (currentIndex > 0) {
+        currentIndex--; // Prevent going before the first image
+    }
+    updateCarousel();
+}
+
+// Function to update the carousel position and arrow visibility
+function updateCarousel() {
+    const itemWidth = items[0].getBoundingClientRect().width + 20; // Adjust for margin
+    const offset = -currentIndex * itemWidth; // Calculate the offset
+    track.style.transform = `translateX(${offset}px)`; // Move the track
+
+    // Show/hide arrows based on current index
+    prevButton.style.display = currentIndex > 0 ? 'block' : 'none'; // Hide left arrow if at the start
+    nextButton.style.display = currentIndex < items.length - 3 ? 'block' : 'none'; // Hide right arrow if at the end
+}
+
+// Optional: Add event listeners for arrow buttons if not using inline onclick
+nextButton.addEventListener('click', scrollRight);
+prevButton.addEventListener('click', scrollLeft);
+
+// Initial visibility of the arrows
+updateCarousel();
+
+    </script>
+</body>
+</html>
