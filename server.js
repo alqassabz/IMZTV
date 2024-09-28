@@ -4,18 +4,27 @@ const mongoose = require('mongoose');
 
 const expressLayouts = require('express-ejs-layouts')
 
-
+require('dotenv').config();
 
 //the pot here because we hiding .env file
 PORT = 4050;
 
-//const expressLayouts = require('express-ejs-layouts')
-
 const app = express();
+
+const db = require('./config/db')
 
 app.set("view engine", "ejs")
 
-// lock in views folder a file name layout.ejs
+
+require('./config/passport')
+
+
+
+
+
+
+
+
 app.use(expressLayouts)
 
 //Routes
