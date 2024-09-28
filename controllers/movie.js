@@ -38,6 +38,7 @@ exports.movie_details = async (req, res) => {
     if (!movieId) {
         return res.status(400).send('Movie ID is required'); // Handle missing ID
     }
+    
     const movie = await Movie.findById(movieId);
     if (!movie) {
         return res.status(404).send('Movie not found'); // Handle case where movie is not found

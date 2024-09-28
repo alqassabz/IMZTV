@@ -22,9 +22,10 @@ const getMoviesWithImages = async () => {
 
   // Create an array of movie objects, combining DB data with image paths
   return movies.map(movie => {
-    const imageFile = files.find(file => path.parse(file).name === movie.title); // Find corresponding image file
+    const imageFile = files.find(file => file === movie.poster);console.log(`/images/${imageFile}`) // Find corresponding image file
     return {
       ...movie.toObject(), // Convert Mongoose Document to plain JavaScript object
+      
       poster: imageFile ? `/images/${imageFile}` : null // Construct image URL if found
     };
   });
@@ -53,6 +54,6 @@ app.get('/', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 4050;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
