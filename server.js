@@ -53,6 +53,10 @@ app.get('/', async (req, res) => {
   res.render('index', { movies }); // Render the index view with movies
 });
 
+const movieRoutes = require('./routes/movie'); // Adjust the path as necessary
+
+app.use('/movie', movieRoutes);
+
 // Start the server
 const PORT = process.env.PORT;
 

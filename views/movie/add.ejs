@@ -1,4 +1,4 @@
-<h1>Add Author</h1>
+<h1>Add Movie</h1>
 
 <form action="/movie/add" method="POST" enctype="multipart/form-data">
     <div>
@@ -10,10 +10,14 @@
       <input type="file" name="poster" class="form-control" /> 
     </div>
     <div>
+      <label>Trailer</label>
+      <input type="file" name="trailer" class="form-control" /> 
+    </div>
+    <div>
       <label>Description</label>
       <input type="text" name="description" class="form-control" /> 
     </div>
     <br>
 
-    <button type="submit" class="btn btn-outline-secondary">Create Author</button>
+    <button type="submit" class="btn btn-outline-secondary">Add Movie</button>
 </form>

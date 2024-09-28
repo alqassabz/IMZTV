@@ -13,25 +13,39 @@ const path = require('path');
 // Update = HTTP GET and POST
 // Delete - HTTP DELETE 
 
-// Configure multer storage
-// Configure multer storage
-// Configure multer storage
-const storage = multer.diskStorage({
+// Configure multer storage for images
+const imageStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/images'); // Set the destination folder for images
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname); // Rename file with timestamp
+    cb(null, file.originalname); // Keep the original file name for images
+  }
+});
+
+// Configure multer storage for videos
+const videoStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/videos'); // Set the destination folder for videos
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Keep the original file name for videos
   }
 });
 
 // Create the upload middleware
-const upload = multer({ storage: storage }).single('poster'); // Only handling the 'poster' field
+const upload = multer({ storage: imageStorage }).fields([
+  { name: 'poster', maxCount: 1 }, // For images
+  { name: 'trailer', maxCount: 1 }  // For videos
+]);
+
 
 // Get function to render the add movie form
 exports.movie_create_get = (req, res) => {
   res.render("movie/add");
 }
+
+
 exports.movie_details = async (req, res) => {
   try {
     const movieId = req.query.id; // Get the ID from query params
@@ -52,23 +66,24 @@ exports.movie_details = async (req, res) => {
 
 
 
-// Post function to handle the movie creation
 exports.movie_create_post = (req, res) => {
   console.log("Incoming request:", req.body);
+  
   upload(req, res, (err) => {
     if (err) {
       console.log("Upload error:", err);
       return res.send("Error uploading file.");
     }
 
-    // Log the uploaded file
-    console.log("Uploaded file:", req.file); 
+    // Log the uploaded files
+    console.log("Uploaded files:", req.files); 
 
     // Create a new Movie instance with the uploaded file information
     let movie = new Movie({
-      title: req.body.name, // Correct field for title
+      title: req.body.name,
       description: req.body.description,
-      poster: req.file ? req.file.filename : null, // Use the uploaded file name
+      poster: req.files.poster && req.files.poster.length > 0 ? req.files.poster[0].filename : null, // Use the uploaded poster file name
+      trailer: req.files.trailer && req.files.trailer.length > 0 ? req.files.trailer[0].filename : null // Use the uploaded trailer file name
     });
 
     // Save the Movie
@@ -82,6 +97,9 @@ exports.movie_create_post = (req, res) => {
       });
   });
 };
+
+
+
 
 
 
