@@ -11,6 +11,9 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.0",
-    "mongoose": "^8.7.0"
+    "express-session": "^1.18.0",
+    "mongoose": "^8.7.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth": "^2.0.0"
   }
 }
