@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212529;
+    color: white;
+}
+
+#imztv {
+    text-decoration: none;
+    color: #F0AD4E;
+    font-weight: 900;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+    position: relative;
+}
+
+#signin {
+    margin-left: auto;
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    
+}

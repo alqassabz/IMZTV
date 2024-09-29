@@ -9,17 +9,20 @@ require('dotenv').config();
 const session = require('express-session')
 const passport = require('passport')
 
+require('dotenv').config();
+
 //the pot here because we hiding .env file
-PORT = 4050;
+const PORT = process.env.PORT
+
 
 const app = express();
-
+require('./config/passport')
 const db = require('./config/db')
 
 app.set("view engine", "ejs")
 
 
-require('./config/passport')
+
 
 //passport and Sassion configurations
 app.use(session ({
@@ -37,7 +40,7 @@ app.use(function(req, res, next)  {
     next();
 })
 
-
+app.use(express.static("public"))
 
 
 
