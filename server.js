@@ -59,7 +59,12 @@ app.get('/', async (req, res) => {
 
 const movieRoutes = require('./routes/movie'); // Adjust the path as necessary
 
+
 app.use('/movie', movieRoutes);
+app.use('/trailers', express.static('C:/Users/HP/Desktop/Movies'));
+
+
+
 
 // Start the server
 const PORT = process.env.PORT;

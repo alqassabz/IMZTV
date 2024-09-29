@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= movie.title %>
+  </title>
+</head>
+
+<body>
+  <h1>
+    <%= movie.title %>
+  </h1>
+  <p>
+    <%= movie.description %>
+  </p>
+
+  <% if (movie.trailer) { %>
+
+    <video width="600" controls>
+      <source src="C:/Users/HP/Desktop/Movies/<%= movie.trailer %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <% } else { %>
+      <p>No trailer available for this movie.</p>
+      <% } %>
+</body>
+
+</html>

@@ -8,6 +8,7 @@ const {Movie} = require("../models/Movie");
 const multer = require('multer');
 const path = require('path');
 const formidable = require('formidable');
+const fs = require('fs');
 
 // Create = HTTP GET and POST
 // Read = HTTP GET
@@ -115,11 +116,47 @@ exports.movie_details = async (req, res) => {
 
 
 
+// Movies directory path (Desktop)
+const movieDir = 'C:/Users/HP/Desktop/Movies';
+// Trailers directory path (inside your project)
+const trailerDir = path.join(__dirname, '..', 'public', 'trailers');
 
+exports.movie_get = async (req, res) => {
+  console.log('Fetching movie');
 
+  const videoDir = 'C:/Users/HP/Desktop/Movies'; // Movies folder on your desktop
 
+  try {
+      // Fetch a single movie by its ID (passed via query params)
+      const movie = await Movie.findById(req.query.id);
 
+      // Check if the movie exists
+      if (!movie) {
+          return res.status(404).send('Movie not found');
+      }
 
+      // Get the name of the trailer without its extension
+      const trailerName = path.basename(movie.trailer, path.extname(movie.trailer));
+
+      // Construct the path to the video file in the Movies folder
+      const videoPath = path.join(videoDir, movie.trailer);
+
+      console.log(`Checking for video at: ${videoPath}`);
+
+      // Check if the file exists in the Movies folder on the desktop
+      let trailerPath = null;
+      if (fs.existsSync(videoPath)) {
+          // If the file exists, set the trailer path (this assumes your frontend is configured to serve from /movies)
+          trailerPath = `/movies/${movie.trailer}`;
+      }
+
+      // Render the EJS template and pass the movie and trailer info
+      res.render('movie/video', { movie, trailer: trailerPath });
+  } catch (error) {
+      console.error('Error fetching movie:', error);
+      res.status(500).send('Server Error');
+  }
+};
 
 
 
