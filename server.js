@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
+const  expressLayouts = require('express-ejs-layouts');
 
 // Require and Initialize dotenv
 require('dotenv').config();
@@ -33,6 +34,9 @@ const getMoviesWithImages = async () => {
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
+
+// Look in views folder for a file named layout.ejs
+app.use(expressLayouts);
 
 // Route to render movies
 app.get('/movie/detail', async (req, res) => {

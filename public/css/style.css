@@ -1,4 +1,9 @@
 /* Ensure the carousel container hides overflow */
+
+body{
+  background-color: black;
+  color: white;
+}
 .carousel-container {
   position: relative;
   width: 100%;
