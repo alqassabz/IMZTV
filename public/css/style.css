@@ -3,7 +3,59 @@
 body{
   background-color: black;
   color: white;
+  padding: 30px;
 }
+
+.inline{
+  display: inline-flex;
+}
+
+hr {
+  width: 100%; /* Make the <hr> span full width */
+  border: none; /* Remove default border */
+  height: 2px; /* Set height */
+  background-color: white; /* Set color */
+  margin: 20px 0; /* Add vertical spacing */
+}
+
+/* Body styles */
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+  font-family: Arial, sans-serif; /* Set a default font */
+  margin: 0; /* Remove default margin */
+  padding: 20px; /* Add padding */ /* Optional: light background color */
+}
+
+/* Video container */
+.video-container {
+  width: 100%;
+  max-width: 700px; /* Limit video width */
+  margin-bottom: 20px; /* Space between video and description */
+}
+.card{
+background-color: rgb(48, 47, 47);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 30px 0;
+}
+
+/* Video element */
+video {
+  width: 100%; /* Responsive video */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Description container */
+.description {
+  padding: 0 45px;
+  text-align: left; /* Center align the description */
+  margin: 0; /* Remove default margin */
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -24,24 +76,20 @@ body{
 
 /* Each carousel item is the same size and aligned horizontally */
 .carousel-item {
-  flex: 0 0 200px; /* Increased fixed width for larger images */
-    margin: 10px;
-    box-sizing: border-box;
-    /* height: 400px; Increased height for larger images */
-    /* display: flex; Allow centering of the image */
-    /* justify-content: center; Center the image horizontally */
-    /* align-items: center; Center the image vertically */
+  flex: 0 0 220px; /* Fixed width to ensure consistent item size */
+  margin: 10px; /* Keep or adjust margin as needed */
+  box-sizing: border-box;
+  display: flex; /* Set display to flex for better alignment */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 .carousel-item img {
-  width:auto; /* Allow the image to scale down if necessary */
-  max-width: 1000px;
-  height: auto; /* Ensures the image fits within the item height */
-  max-height: 350px;
+  max-width: 100%; /* Allow images to fill the item */
+  height: auto; /* Maintain aspect ratio */
   object-fit: cover; /* Keep the aspect ratio without cropping */
   border-radius: 5px;
 }
-
 /* Arrow buttons for navigation */
 .carousel-arrow {
   position: absolute;

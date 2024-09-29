@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  
+
     <div class="carousel-container">
         <button class="carousel-arrow left-arrow" onclick="scrollLeft()">&#10094;</button>
         <div class="carousel">
             <div class="carousel-track">
-                <% movies.forEach(function(movie){ %>
+                <% movies.forEach(function(movie) { %>
                     <div class="carousel-item">
-                      <a href="/movie/detail?id=<%= movie._id %>">
-                        <img src="<%= movie.poster %>" alt="<%= movie.title %>">
+                        <a href="/movie/detail?id=<%= movie._id %>">
+                            <img src="<%= movie.poster %>" alt="<%= movie.title %>" />
                         </a>
                     </div>
                 <% }); %>

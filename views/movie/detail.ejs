@@ -5,38 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Detail</title>
   <style>
-    /* Body styles */
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center align the content */
-      font-family: Arial, sans-serif; /* Set a default font */
-      margin: 0; /* Remove default margin */
-      padding: 20px; /* Add padding */
-      background-color: #f0f0f0; /* Optional: light background color */
-    }
-
-    /* Video container */
-    .video-container {
-      width: 100%;
-      max-width: 700px; /* Limit video width */
-      margin-bottom: 20px; /* Space between video and description */
-    }
-
-    /* Video element */
-    video {
-      width: 100%; /* Responsive video */
-      height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Description container */
-    .description {
-      text-align: center; /* Center align the description */
-      margin: 0; /* Remove default margin */
-    }
+    
   </style>
 </head>
-<body>
+<body class="details">
 
   <!-- Title section -->
   <div class="description">
@@ -52,18 +24,19 @@
     </video>
   </div>
 
+  <div class="card" style="width: 44rem;">
   <!-- Description section -->
-  <div class="description">
+  <div class="description card-title">
     <h2>Description</h2>
-    <p><i><%= movie.description %></i></p>
+    <p class="card-body"><i><%= movie.description %></i></p>
   </div>
 
-  <div>
+  <div class="inline">
     <form action="/">
-    <button>Go Back</button>
+    <button class="btn btn-outline-light">Go Back</button>&emsp;&emsp;
   </form>
-    <button>Watch Movie</button>
+    <button class="btn btn-outline-light">Watch Movie</button>
   </div>
-
+</div>
 </body>
 </html>
