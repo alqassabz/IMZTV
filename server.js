@@ -57,11 +57,16 @@ app.get('/', async (req, res) => {
   res.render('index', { movies }); // Render the index view with movies
 });
 
-const movieRoutes = require('./routes/movie'); // Adjust the path as necessary
 
 
+// Serve the static movie files first
+app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'));
+
+// Import movie-related routes
+const movieRoutes = require('./routes/movie'); 
 app.use('/movie', movieRoutes);
-app.use('/trailers', express.static('C:/Users/HP/Desktop/Movies'));
+
+
 
 
 

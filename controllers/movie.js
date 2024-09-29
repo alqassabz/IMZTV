@@ -14,6 +14,17 @@ const fs = require('fs');
 // Read = HTTP GET
 // Update = HTTP GET and POST
 // Delete - HTTP DELETE 
+console.log('Current directory:', process.cwd());
+
+fs.readdir('C:/Users/HP/Desktop/Movies', (err, files) => {
+  if (err) {
+    console.error('Error reading directory:', err);
+  } else {
+    console.log('Files in Movies directory:', files); // This will list all files
+  }
+});
+
+
 
 // Configure storage for images
 const imageStorage = multer.diskStorage({
@@ -116,47 +127,40 @@ exports.movie_details = async (req, res) => {
 
 
 
-// Movies directory path (Desktop)
-const movieDir = 'C:/Users/HP/Desktop/Movies';
-// Trailers directory path (inside your project)
-const trailerDir = path.join(__dirname, '..', 'public', 'trailers');
+
+
+// Movies directory path on Windows
+const movieDir = '/mnt/c/Users/HP/Desktop/Movies';
 
 exports.movie_get = async (req, res) => {
   console.log('Fetching movie');
 
-  const videoDir = 'C:/Users/HP/Desktop/Movies'; // Movies folder on your desktop
-
   try {
-      // Fetch a single movie by its ID (passed via query params)
-      const movie = await Movie.findById(req.query.id);
+    const movie = await Movie.findById(req.query.id);
 
-      // Check if the movie exists
-      if (!movie) {
-          return res.status(404).send('Movie not found');
-      }
+    if (!movie) {
+      return res.status(404).send('Movie not found');
+    }
 
-      // Get the name of the trailer without its extension
-      const trailerName = path.basename(movie.trailer, path.extname(movie.trailer));
+    const videoPath = path.join(movieDir, movie.trailer);
+    console.log(`Checking for video at: ${videoPath}`);
 
-      // Construct the path to the video file in the Movies folder
-      const videoPath = path.join(videoDir, movie.trailer);
-
-      console.log(`Checking for video at: ${videoPath}`);
-
-      // Check if the file exists in the Movies folder on the desktop
-      let trailerPath = null;
-      if (fs.existsSync(videoPath)) {
-          // If the file exists, set the trailer path (this assumes your frontend is configured to serve from /movies)
-          trailerPath = `/movies/${movie.trailer}`;
-      }
-
-      // Render the EJS template and pass the movie and trailer info
+    if (fs.existsSync(videoPath)) {
+      console.log(`File exists at: ${videoPath}`);
+      const trailerPath = `/movie/files/${movie.trailer}`;
       res.render('movie/video', { movie, trailer: trailerPath });
+    } else {
+      console.log(`File does NOT exist at: ${videoPath}`);
+      res.status(404).send('Video file not found');
+    }
   } catch (error) {
-      console.error('Error fetching movie:', error);
-      res.status(500).send('Server Error');
+    console.error('Error fetching movie:', error);
+    res.status(500).send('Server Error');
   }
 };
+
+
+
 
 
 
