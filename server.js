@@ -43,6 +43,14 @@ app.use(expressLayouts);
 
 
 
+// Serve the home route and render the index.ejs
+app.get('/', async (req, res) => {
+  const movies = await getMoviesWithImages(); // Call the function to get movies
+  res.render('index', { movies }); // Render the index view with movies
+});
+
+
+
 // Serve the static movie files first
 app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'));
 
