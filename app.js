@@ -1,38 +1,40 @@
-document.addEventListener('DOMContentLoaded' => {const movieList = document.getElementById('movie-list')})
+document.addEventListener('DOMContentLoaded', () => {
+  const movieLists = document.getElementById('movie-list')
+})
 
-const arrows = document.querySelectorAll(".arrow");
-const movieLists = document.querySelectorAll(".movie-list");
+const arrows = document.querySelectorAll('.arrow')
+const movieLists = document.querySelectorAll('.movie-list')
+const routes = require('./routes/movieRoutes')
 
 arrows.forEach((arrow, i) => {
-  const itemNumber = movieLists[i].querySelectorAll("img").length;
-  let clickCounter = 0;
-  arrow.addEventListener("click", () => {
-    const ratio = Math.floor(window.innerWidth / 270);
-    clickCounter++;
+  const itemNumber = movieLists[i].querySelectorAll('img').length
+  let clickCounter = 0
+  arrow.addEventListener('click', () => {
+    const ratio = Math.floor(window.innerWidth / 270)
+    clickCounter++
     if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
       movieLists[i].style.transform = `translateX(${
-        movieLists[i].computedStyleMap().get("transform")[0].x.value - 300
-      }px)`;
+        movieLists[i].computedStyleMap().get('transform')[0].x.value - 300
+      }px)`
     } else {
-      movieLists[i].style.transform = "translateX(0)";
-      clickCounter = 0;
+      movieLists[i].style.transform = 'translateX(0)'
+      clickCounter = 0
     }
-  });
+  })
 
-  console.log(Math.floor(window.innerWidth / 270));
-});
+  console.log(Math.floor(window.innerWidth / 270))
+})
 
 //TOGGLE
 
-const ball = document.querySelector(".toggle-ball");
+const ball = document.querySelector('.toggle-ball')
 const items = document.querySelectorAll(
-  ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
-);
+  '.container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle'
+)
 
-ball.addEventListener("click", () => {
+ball.addEventListener('click', () => {
   items.forEach((item) => {
-    item.classList.toggle("active");
-  });
-  ball.classList.toggle("active");
-});
-
+    item.classList.toggle('active')
+  })
+  ball.classList.toggle('active')
+})
