@@ -9,6 +9,7 @@ require('dotenv').config();
 const session = require('express-session')
 const passport = require('passport')
 
+
 require('dotenv').config();
 
 //the pot here because we hiding .env file
@@ -16,6 +17,7 @@ const PORT = process.env.PORT
 
 
 const app = express();
+
 require('./config/passport')
 const db = require('./config/db')
 
@@ -50,11 +52,12 @@ app.use(expressLayouts)
 //Routes
 const homeRouter = require('./routes/home');
 const authRouter = require('./routes/auth');
-
+// const profileRouter = require('./routes/profile');
 
 //use
 app.use('/', homeRouter);
 app.use('/', authRouter);
+// app.use('/profile', profileRouter);
 
 //show the port
 app.listen(PORT, () => {
