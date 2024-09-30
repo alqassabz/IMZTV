@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> Trailers</title>
+</head>
+<body>
+    <h1>Trailers for <%= title %></h1>
+
+    <% if (trailers.length > 0) { %>
+        <ul>
+            <% trailers.forEach(trailer => { %>
+                <li>
+                    <a href="<%= trailer.url %>" target="_blank">Watch Trailer</a>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No trailers available for this movie.</p>
+    <% } %>
+</body>
+</html>

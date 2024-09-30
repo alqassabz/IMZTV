@@ -18,3 +18,5 @@ function scrollLeft() {
     carousel.style.transform = `translateX(-${scrollAmount}px)`;
   }
 }
+
+

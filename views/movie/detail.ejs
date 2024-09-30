@@ -3,40 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Detail</title>
-  <style>
-    
-  </style>
+  <title><%= movie.title %> - Movie Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-<body class="details">
+<body>
+  <div class="container">
+    <!-- Movie Title -->
+    <h1><%= movie.title %></h1>
 
-  <!-- Title section -->
-  <div class="description">
-    <h1><%= movie.title%></h1>
+    <!-- Movie Trailer -->
+    <div class="movie-trailer">
+      <h2>Watch Trailer</h2>
+      <% if (trailer) { %>
+        <video width="800" controls>
+          <source src="<%= trailer %>" type="video/mp4">
+        </video>
+      <% } %>
+    </div>
   </div>
-
-  <!-- Video container -->
-  <div class="video-container">
-    <!-- Video player with autoplay and controls -->
-    <video id="videoPlayer" autoplay controls>
-      <source src="/trailers/<%= movie.trailer %>" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-
-  <div class="card" style="width: 44rem;">
-  <!-- Description section -->
-  <div class="description card-title">
-    <h2>Description</h2>
-    <p class="card-body"><i><%= movie.description %></i></p>
-  </div>
-
-  <div class="inline">
-    <a href="/" class="btn btn-outline-light">Go Back</a>&emsp;&emsp;
-  <!-- <form action="/movie/video"> -->
-    <a href="/movie/video?id=<%= movie._id%>" class="btn btn-outline-light">Watch Movie</a>
-  <!-- </form> -->
-  </div>
-</div>
 </body>
 </html>

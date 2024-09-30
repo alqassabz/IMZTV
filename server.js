@@ -35,27 +35,11 @@ const getMoviesWithImages = async () => {
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 
+// app.use(express.json());
+// app.use('/api', movieRoutes); // This will make your routes available under /api
+
 // Look in views folder for a file named layout.ejs
 app.use(expressLayouts);
-
-// Route to render movies
-app.get('/movie/detail', async (req, res) => {
-  const movies = await getMoviesWithImages(); // Get the movies with images
-  const movieId = req.query.id; // Get the movie ID from the query
-  const movie = movies.find(m => m._id.toString() === movieId); // Find the movie based on the ID
-
-  if (movie) {
-    res.render('movie/detail', { movie }); // Pass the movie to the EJS template
-  } else {
-    res.status(404).send('Movie not found'); // Handle not found case
-  }
-});
-
-// Serve the home route and render the index.ejs
-app.get('/', async (req, res) => {
-  const movies = await getMoviesWithImages(); // Call the function to get movies
-  res.render('index', { movies }); // Render the index view with movies
-});
 
 
 

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= movie.title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Trailer</title>
 </head>
 <body>
-  <h1><%= movie.title %></h1>
-  <p><%= movie.description %></p>
-  <% if (trailer) { %>
-    <video controls>
-      <source src="<%= trailer %>" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  <% } else { %>
-    <p>No trailer available for this movie.</p>
-  <% } %>
+    <h1>Watch the Trailer</h1>
+    <h3><%= overview %></h3>
+    <% 
+    // Extract video ID from the trailer URL
+    const videoId = trailer.split('v=')[1].split('&')[0]; 
+    // Construct the embed URL
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    %>
+    <iframe width="560" height="315" src="<%= embedUrl %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
