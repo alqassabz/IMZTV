@@ -4,12 +4,34 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session')
+const passport = require('passport')
+
+app.use(express.urlencoded({ extended: true }));
+
 
 // Require and Initialize dotenv
 require('dotenv').config();
 
+require('./config/passport')
 // Serve static files like CSS, images, etc.
 app.use(express.static("public"));
+
+//passport and Sassion configurations
+app.use(session ({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Share the information with other pages
+app.use(function(req, res, next)  {
+    res.locals.user = req.user;
+    next();
+})
 
 // Connect to the database (assuming you have this set up correctly)
 const db = require('./config/db');
@@ -63,6 +85,19 @@ app.use('/movie', movieRoutes);
 
 // Start the server
 const PORT = process.env.PORT;
+
+//Routes
+const homeRouter = require('./routes/home');
+const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin')
+// const profileRouter = require('./routes/profile');
+
+//use
+app.use('/home', homeRouter);
+app.use('/', authRouter);
+app.use('/admin', adminRouter)
+// app.use('/profile', profileRouter);
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
