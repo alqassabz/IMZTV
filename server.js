@@ -1,71 +1,68 @@
 const express = require('express');
-
-const mongoose = require('mongoose');
-
-const expressLayouts = require('express-ejs-layouts')
-
-require('dotenv').config();
-
-const session = require('express-session')
-const passport = require('passport')
-
-
-
-require('dotenv').config();
-
-//the pot here because we hiding .env file
-const PORT = process.env.PORT
-
 const app = express();
+const fs = require('fs');
+const path = require('path');
+const mongoose = require('mongoose');
+const expressLayouts = require('express-ejs-layouts');
 
-app.use(express.urlencoded({ extended: true }));
-require('./config/passport')
-const db = require('./config/db')
+// Require and Initialize dotenv
+require('dotenv').config();
 
-app.set("view engine", "ejs")
+// Serve static files like CSS, images, etc.
+app.use(express.static("public"));
 
+// Connect to the database (assuming you have this set up correctly)
+const db = require('./config/db');
+const { Movie } = require('./models/Movie'); // Adjust the path according to your project structure
 
+// Function to get movies with images
+const getMoviesWithImages = async () => {
+    const movies = await Movie.find(); // Fetch movies from the database
+    const imageDir = path.join(__dirname, 'public/images'); // Path to your images directory
+    const files = fs.readdirSync(imageDir); // Read the directory
 
+    // Create an array of movie objects, combining DB data with image paths
+    return movies.map(movie => {
+        // Check if the poster field is valid
+        if (!movie.poster) {
+            return {
+                ...movie.toObject(),
+                poster: null // or a default image URL if desired
+            };
+        }
 
-//passport and Sassion configurations
-app.use(session ({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true
-}))
+        // Extract just the filename from the poster URL
+        const posterFilename = path.basename(movie.poster); // Get the filename from URL
+        const imageFile = files.find(file => file === posterFilename); // Find corresponding image file
 
-app.use(passport.initialize())
-app.use(passport.session())
+        return {
+            ...movie.toObject(), // Convert Mongoose Document to plain JavaScript object
+            poster: imageFile ? `/images/${imageFile}` : null // Construct image URL if found
+        };
+    });
+};
 
-//Share the information with other pages
-app.use(function(req, res, next)  {
-    res.locals.user = req.user;
-    next();
-})
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
 
-app.use(express.static("public"))
+// Use express layouts
+app.use(expressLayouts);
 
+// Serve the home route and render the index.ejs
+app.get('/', async (req, res) => {
+    const movies = await getMoviesWithImages(); // Call the function to get movies
+    res.render('index', { movies }); // Render the index view with movies
+});
 
+// Serve the static movie files first
+app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'));
 
+// Import movie-related routes
+const movieRoutes = require('./routes/movie'); 
+app.use('/movie', movieRoutes);
 
-app.use(expressLayouts)
+// Start the server
+const PORT = process.env.PORT;
 
-//Routes
-const homeRouter = require('./routes/home');
-const authRouter = require('./routes/auth');
-const adminRouter = require('./routes/admin')
-// const profileRouter = require('./routes/profile');
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-//use
-app.use('/home', homeRouter);
-app.use('/', authRouter);
-app.use('/admin', adminRouter)
-// app.use('/profile', profileRouter);
-
-//show the port
-app.listen(PORT, () => {
-    console.log(`The Port is: ${PORT}`);
-})
-
-
-//http://localhost:4050/user/update?id=USER_ID

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Trailer</title>
+</head>
+<body>
+    <h1>Watch the Trailer</h1>
+    <h4><i><%= overview %></i></h4>
+
+    <br>
+    <% 
+    // Extract video ID from the trailer URL
+    const videoId = trailer.split('v=')[1].split('&')[0]; 
+    // Construct the embed URL
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    %>
+    <iframe width="560" height="315" src="<%= embedUrl %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br>
+    <div class="inline">
+        <a class="btn btn-outline-light" href="/">Go Back</a>&emsp;
+        <a class="btn btn-outline-light" href="/movie/video?id=<%=id %>">Watch Movie</a>
+      </div>
+</body>
+</html>
+
+
