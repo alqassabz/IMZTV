@@ -27,19 +27,18 @@ exports.user_update_get = (req, res) => {
     console.log('User ID:', userId);
 
     if (!userId) {
-        return res.status(400).send('User ID is required');
+        return res.status().send('User ID is required');
     }
 
     User.findById(userId)
         .then(user => {
             if (!user) {
-                return res.status(404).send('User not found');
+                return res.status().send('User not found');
             }
             res.render('auth/edit', { user });
         })
         .catch(err => {
-            console.error(err);
-            res.status(500).send('Server error');
+            console.log(err)
         });
 };
 
@@ -53,12 +52,14 @@ exports.user_update_post = (req, res) => {
     User.findByIdAndUpdate(id, { name }, { new: true })
         .then(user => {
             if (!user) {
-                return res.status(404).send('User not found');
+                console.log(err);
+                
             }
             res.redirect("/home");
         })
         .catch(err => {
-            console.error(err);
-            res.status(500).send('Server error');
+            console.log(err);
+            
+            
         });
 };

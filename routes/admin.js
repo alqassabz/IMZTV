@@ -4,7 +4,9 @@ const router = express.Router();
 
 const adminCtrl = require('../controllers/admin')
 
-router.get('/', adminCtrl.admin_render)
+const insurelogedin = require('../config/insurelogedin')
+
+router.get('/', insurelogedin, adminCtrl.admin_render)
 
 
 
