@@ -15,7 +15,7 @@
             <div class="carousel-track">
                 <% movies.forEach(function(movie) { %>
                     <div class="carousel-item">
-                        <a href="/movie/detail?id=<%= movie._id %>">
+                        <a href="/movie/detail?title=<%= movie.title %>">
                             <img src="<%= movie.poster %>" alt="<%= movie.title %>" />
                         </a>
                     </div>
