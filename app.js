@@ -1,16 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const movieLists = document.getElementById('movie-list')
-})
-
 const arrows = document.querySelectorAll('.arrow')
 const movieLists = document.querySelectorAll('.movie-list')
-const routes = require('./routes/movieRoutes')
 
 arrows.forEach((arrow, i) => {
   const itemNumber = movieLists[i].querySelectorAll('img').length
   let clickCounter = 0
   arrow.addEventListener('click', () => {
     const ratio = Math.floor(window.innerWidth / 270)
+
     clickCounter++
     if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
       movieLists[i].style.transform = `translateX(${
@@ -21,17 +17,15 @@ arrows.forEach((arrow, i) => {
       clickCounter = 0
     }
   })
-
-  console.log(Math.floor(window.innerWidth / 270))
+  console.log(movieLists[i].querySelectorAll('img').length)
 })
 
-//TOGGLE
+//toggle
 
 const ball = document.querySelector('.toggle-ball')
 const items = document.querySelectorAll(
-  '.container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle'
+  '.container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle'
 )
-
 ball.addEventListener('click', () => {
   items.forEach((item) => {
     item.classList.toggle('active')
