@@ -53,11 +53,13 @@ app.use(expressLayouts)
 //Routes
 const homeRouter = require('./routes/home');
 const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin')
 // const profileRouter = require('./routes/profile');
 
 //use
-app.use('/', homeRouter);
+app.use('/home', homeRouter);
 app.use('/', authRouter);
+app.use('/admin', adminRouter)
 // app.use('/profile', profileRouter);
 
 //show the port

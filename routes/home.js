@@ -6,7 +6,7 @@ const router = express.Router();
 const homeCtrl = require('../controllers/home')
 
 //routers
-router.get('/home/index', homeCtrl.home_render)
+router.get('/', homeCtrl.home_render)
 
 
 

@@ -11,14 +11,14 @@ exports.login_auth_google = passport.authenticate(
 exports.callback_auth_google = passport.authenticate(
    'google',
    {
-    successRedirect: '/home/index',
-    failureRedirect: '/home/index'
+    successRedirect: '/home',
+    failureRedirect: '/home'
    } 
 )
 
 exports.logout_auth_google = (req, res) => {
     req.logout(function () {
-        res.redirect('/home/index');
+        res.redirect('/home');
     })
 }
 
@@ -55,7 +55,7 @@ exports.user_update_post = (req, res) => {
             if (!user) {
                 return res.status(404).send('User not found');
             }
-            res.redirect("/home/index");
+            res.redirect("/home");
         })
         .catch(err => {
             console.error(err);

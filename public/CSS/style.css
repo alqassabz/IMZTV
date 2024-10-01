@@ -39,3 +39,20 @@ body {
     border: none;
     color: white;
 }
+
+#inEditImg {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+#nameEditButton {
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    margin-left: 15px;
+}
+
+#editProfile {
+    margin-left: 15px;
+}
