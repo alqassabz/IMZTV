@@ -2,7 +2,52 @@
 
 // const router = express.Router();
 
+// router.use(express.urlencoded({extended: true}))
+
 // const profileCtrl = require("../controllers/profile")
+
+
+// router.get('/add', profileCtrl.Profile_create_get)
+// router.post('/add', profileCtrl.Profile_create_post)
+
+// router.get('/index', profileCtrl.Profile_show_index)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // router.get('/add', profileCtrl.profile_create_get);

@@ -10,14 +10,15 @@ const session = require('express-session')
 const passport = require('passport')
 
 
+
 require('dotenv').config();
 
 //the pot here because we hiding .env file
 const PORT = process.env.PORT
 
-
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 require('./config/passport')
 const db = require('./config/db')
 
@@ -63,3 +64,6 @@ app.use('/', authRouter);
 app.listen(PORT, () => {
     console.log(`The Port is: ${PORT}`);
 })
+
+
+//http://localhost:4050/user/update?id=USER_ID

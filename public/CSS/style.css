@@ -26,3 +26,16 @@ body {
     border-color: #F0AD4E;
     
 }
+
+#profileImg {
+    height: 35px;
+    width: auto;
+    border-radius: 50%;
+    /* border: 3px solid;
+    border-color: #F0AD4E; */
+}
+
+#profileName {
+    border: none;
+    color: white;
+}

@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMZTV</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>      
     <div class="navbar">
         <div> 
-            <h1> <a id="imztv" href="/home">IMZTV</a> </h1> 
+            <h1> <a id="imztv" href="/home/index">IMZTV</a> </h1> 
         </div>
         <!-- <a href="/auth/google" class="btn btn-outline-primary" id="signin">Sign in</a> -->
-         <% if (user) { %>
-            Hi <%= user.name %>
+            <% if (user) { %>
+            
+            <div id="profileBox">
+                <img src="<%= user.avatar %>" id="profileImg">  
+                <a href="/user/update?id=<%= user._id %>" class="btn btn-outline-primary me-2" id="profileName"><%= user.name %></a>
+                
+            </div>
+            
             <a href="/logout" class="btn btn-outline-primary" id="signin">Logout</a>
             
-        <% } else { %>
+            <% } else { %>
             <a href="/auth/google" class="btn btn-outline-primary" id="signin">Signin</a>
-        <% } %>
+            <% } %>
         </div>
-    <nav>
+        <nav>
         
-    </nav>
+            <!-- <a href="/profile/index" class="btn btn-outline-primary">Profiles</a>
+            <a href="/profile/add" class="btn btn-outline-primary">Add Profile</a> -->
+       
+         </nav>
     <%- body %>
 </body>
 </html>

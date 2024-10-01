@@ -1,4 +1,109 @@
+// const { authenticate } = require("passport");
 // const Profile = require("../models/profile")
+
+
+// exports.Profile_create_get = (req, res) => {
+//     console.log(Profile)
+//     Profile.find()
+//     .then((Profiles) => {
+//         res.render('profile/add', {Profiles});   
+        
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+    
+ 
+// }
+
+// exports.Profile_create_post = (req, res) => {
+//     const { name, avatar } = (req.body);
+//     const newProfile = new Profile({ name, avatar})
+
+//     newProfile.save()
+//     .then(() => {
+//         res.redirect('profile/add')
+//         console.log(newProfile);
+        
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+//     res.redirect("/profile/index")
+// }
+
+// exports.Profile_show_index = (req, res) => {
+//     Profile.find()
+//     .then((profiles) => { // Renamed to 'profiles' for clarity
+//         console.log("profiles", profiles); // Log the entire array
+
+//         res.render('profile/index', { profile: profiles }); // Pass the whole array
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
+// }
+
+
+// exports.Profile_show_get = (req, res) => {
+//     Profile.findById(req.query.id)
+//     .then((Profile) => {
+//         res.render('profile/detail', {Profile})
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // exports.profile_create_get = (req, res) => {
