@@ -24,7 +24,7 @@ body {
   background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align the content */
+   /* Center align the content */
   font-family: Arial, sans-serif; /* Set a default font */
   margin: 0; /* Remove default margin */
   padding: 20px; /* Add padding */ /* Optional: light background color */
@@ -35,6 +35,7 @@ body {
   width: 100%;
   max-width: 700px; /* Limit video width */
   margin-bottom: 20px; /* Space between video and description */
+  align-items: center;
 }
 .card{
 background-color: rgb(48, 47, 47);
@@ -42,12 +43,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 30px 0;
+align-items: center;
 }
 
 /* Video element */
 video {
   width: 100%; /* Responsive video */
   height: auto; /* Maintain aspect ratio */
+  align-items: center;
 }
 
 /* Description container */
@@ -55,6 +58,7 @@ video {
   padding: 0 45px;
   text-align: left; /* Center align the description */
   margin: 0; /* Remove default margin */
+  align-items: center;
 }
 
 .carousel-container {
@@ -112,4 +116,77 @@ video {
 
 .right-arrow {
   right: 10px; /* Add some spacing from the edge */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212529;
+    color: white;
+}
+
+#imztv {
+    text-decoration: none;
+    color: #F0AD4E;
+    font-weight: 900;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+    position: relative;
+}
+
+#signin {
+    
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    
+}
+
+#profileImg {
+    height: 35px;
+    width: auto;
+    border-radius: 50%;
+    /* border: 3px solid;
+    border-color: #F0AD4E; */
+}
+
+#profileName {
+    border: none;
+    color: white;
+}
+
+#inEditImg {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+#nameEditButton {
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    margin-left: 15px;
+}
+
+#editProfile {
+    margin-left: 15px;
+}
+
+.movieDetail {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#mmm {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
