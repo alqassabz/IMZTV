@@ -55,7 +55,7 @@ exports.user_update_post = (req, res) => {
                 console.log(err);
                 
             }
-            res.redirect("/home");
+            res.redirect("/");
         })
         .catch(err => {
             console.log(err);
