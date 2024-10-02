@@ -11,14 +11,14 @@ exports.login_auth_google = passport.authenticate(
 exports.callback_auth_google = passport.authenticate(
    'google',
    {
-    successRedirect: '/home',
-    failureRedirect: '/home'
+    successRedirect: '/',
+    failureRedirect: '/'
    } 
 )
 
 exports.logout_auth_google = (req, res) => {
     req.logout(function () {
-        res.redirect('/home');
+        res.redirect('/');
     })
 }
 

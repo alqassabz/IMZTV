@@ -10,7 +10,11 @@
   <div class="container">
     <!-- Movie Title -->
     <h1><%= movie.title %></h1>
-
+    <script>
+      const sidebar = document.querySelector(".sidebar")
+      sidebar.style.backgroundColor = 'white'
+     sidebar.style.display = 'none';
+    </script>
     <!-- Movie Trailer -->
     <div class="movie-trailer">
       <% if (trailer) { %>

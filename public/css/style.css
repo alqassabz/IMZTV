@@ -3,7 +3,137 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+   /* Center align the content */
+  font-family: Arial, sans-serif; /* Set a default font */
+  margin: 0; /* Remove default margin */
+  
+  background-color: #212529;
+  color: white;
 }
+.add-movie{
+  padding: 100px;
+}
+
+
+
+
+form{
+  margin-left: 200px;
+  margin-top: 50px;
+}
+.inlinebtn{
+  display: inline-block; /* Ensure it doesn't take the full width */
+  width: 100px; /* Automatically adjust to the content */
+  padding: 10px 20px; /* Add padding for better appearance */
+  background-color: yellow; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Spacing above the button */
+  margin-left: 100px;
+  color: black;
+
+}
+
+
+/* Header Styles */
+.edit-user-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold color for the title */
+}
+
+/* Profile Edit Section */
+.edit-user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.edit-user-avatar {
+  width: 100px; /* Fixed size for the avatar */
+  height: 100px;
+  border-radius: 50%; /* Circular avatar */
+  border: 2px solid #FFD700; /* Gold border */
+  margin-right: 20px;
+}
+
+.edit-user-email {
+  margin: 0;
+}
+
+/* Form Styles */
+.edit-user-form, .add-movie-form {
+  background-color: #1E1E1E; /* Darker background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  width: 500px;
+  padding: 10px;
+}
+
+.edit-user-label {
+  display: block; /* Block display for labels */
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #FFD700; /* Gold color for labels */
+}
+
+.edit-user-input {
+  width: 150px; /* Full-width input */
+  padding: 10px;
+  border: 1px solid #555; /* Dark border */
+  border-radius: 5px; /* Slightly rounded corners */
+  background-color: #333; /* Dark input background */
+  color: #EAEAEA; /* Light text color */
+  transition: border 0.3s; /* Transition for border color */
+}
+
+.edit-user-input:focus {
+  border-color: #FFD700; /* Gold border on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Button Styles */
+.edit-user-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #FFD700; /* Gold border for button */
+  border-radius: 5px; /* Rounded corners */
+  background-color: transparent; /* Transparent background */
+  color: #FFD700; /* Gold text color */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.edit-user-button:hover {
+  background-color: #FFD700; /* Gold background on hover */
+  color: #121212; /* Dark text color on hover */
+}
+
+.btn-outline-primary {
+  background-color: transparent; /* No background */
+}
+
+
+.form-control {
+  width: 80%; /* Make the input fields full width */
+  padding: 10px; /* Add padding */
+  margin-bottom: 10px; /* Space between fields */
+}
+
+.noStyle{
+  color: yellow;
+  text-decoration: none;
+}
+
 
 .navbar {
   width: 100%;
@@ -25,7 +155,7 @@ body {
 .logo {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
-  color: rgb(162, 162, 2);
+  color: rgb(252, 252, 5);
   font-weight: bold;
 }
 
@@ -66,6 +196,11 @@ body {
   align-items: center;
   justify-content: space-around;
   position: relative;
+}
+
+.desc{
+  margin-left: 80px;
+  margin-right: 75px;
 }
 .toggle-icon {
   color: gold;
@@ -195,6 +330,7 @@ body {
   cursor: pointer;
   opacity: 0;
   transition: 1.5s all ease-in-out;
+  text-decoration: none;
 }
 .arrow {
   font-size: 120px;
@@ -221,6 +357,7 @@ body {
 .left-menu-icon.active {
   color: black;
 }
+
 .toggle.active {
   background-color: black;
 }
@@ -234,9 +371,75 @@ body {
   }
 }
 
-body{
-  padding: 30px;
+
+/* Content Styles */
+.add-movie-content {
+  max-width: 600px; /* Limit the width of the form */
+  margin: 0 auto; /* Center the form */
+  padding: 20px;
+  background-color: #1E1E1E; /* Darker background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
+
+/* Form Title */
+.add-movie-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold color for title */
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px; /* Space between form elements */
+}
+
+/* Label Styles */
+.form-label {
+  display: block; /* Block display for labels */
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #FFD700; /* Gold color for labels */
+}
+
+/* Input Styles */
+.form-input {
+  width: 95%; /* Full-width input */
+  padding: 10px;
+  border: 1px solid #555; /* Dark border */
+  border-radius: 5px; /* Slightly rounded corners */
+  background-color: #333; /* Dark input background */
+  color: #EAEAEA; /* Light text color */
+  transition: border 0.3s; /* Transition for border color */
+}
+
+.form-input:focus {
+  border-color: #FFD700; /* Gold border on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Button Styles */
+.add-movie-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #FFD700; /* Gold border for button */
+  border-radius: 5px; /* Rounded corners */
+  background-color: transparent; /* Transparent background */
+  color: #FFD700; /* Gold text color */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.add-movie-button:hover {
+  background-color: #FFD700; /* Gold background on hover */
+  color: #121212; /* Dark text color on hover */
+}
+
+
+
 
 .inline{
   display: flex;
@@ -247,20 +450,11 @@ hr {
   width: 100%; /* Make the <hr> span full width */
   border: none; /* Remove default border */
   height: 2px; /* Set height */
-  background-color: white; /* Set color */
+  
   margin: 20px 0; /* Add vertical spacing */
 }
 
-/* Body styles */
-body {
 
-  display: flex;
-  flex-direction: column;
-   /* Center align the content */
-  font-family: Arial, sans-serif; /* Set a default font */
-  margin: 0; /* Remove default margin */
-  padding: 20px; /* Add padding */ /* Optional: light background color */
-}
 
 /* Video container */
 .video-container {
@@ -350,12 +544,6 @@ video {
   right: 10px; /* Add some spacing from the edge */
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #212529;
-    color: white;
-}
 
 #imztv {
     text-decoration: none;
