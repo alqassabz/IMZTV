@@ -81,8 +81,6 @@ app.get('/', async (req, res) => {
 // app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'))
 
 // Import movie-related routes
-const movieRoutes = require('./routes/movie')
-app.use('/movie', movieRoutes)
 
 // Start the server
 const PORT = process.env.PORT
@@ -91,12 +89,15 @@ const PORT = process.env.PORT
 const homeRouter = require('./routes/home')
 const authRouter = require('./routes/auth')
 const adminRouter = require('./routes/admin')
+const movieRoutes = require('./routes/movie')
 // const profileRouter = require('./routes/profile');
 
 //use
 app.use('/home', homeRouter)
 app.use('/', authRouter)
 app.use('/admin', adminRouter)
+app.use('/movie', movieRoutes)
+
 // app.use('/profile', profileRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

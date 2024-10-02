@@ -5,7 +5,7 @@ var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 const axios = require('axios')
 
-const { Movie } = require('../models/Movie')
+const { Movie, Review } = require('../models/Movie')
 const multer = require('multer')
 const path = require('path')
 const formidable = require('formidable')
@@ -206,6 +206,33 @@ exports.movie_review_get = (req, res) => {
       console.log(err)
     })
 }
+exports.movie_review_post = async (req, res) => {
+  try {
+    console.log('req.body ', req.body)
+    console.log('req.body.movie ', req.body.movie)
+    // Find the movie by its ID from the form
+    const movie = await Movie.findById(req.body.movie)
+
+    // Create a new review object
+    const newReview = {
+      name: req.body.name,
+      review: req.body.review
+    }
+
+    console.log('movie', movie)
+    // Add the review to the movie's reviews array
+    movie.reviews.push(newReview)
+
+    // Save the updated movie with the new review
+    await movie.save()
+
+    // Redirect back to the details page (which you are already rendering)
+    res.redirect('/') // Redirect back to your movie listing or details page (whichever page you're using to show the movie details and reviews)
+  } catch (err) {
+    console.error(err)
+    res.status(500).send('Review error')
+  }
+}
 
 const movieDir = '/mnt/c/Users/HP/Desktop/Movies' // Path to your movie directory
 
@@ -292,7 +319,9 @@ exports.movie_details = async (req, res) => {
     console.log(`Trailer URL: ${trailerUrl || 'No trailer found'}`)
 
     // Find the movie in the database by title
-    const movieObj = await Movie.findOne({ title: movieTitle })
+    const movieObj = await Movie.findOne({ title: movieTitle }).populate(
+      'reviews'
+    )
 
     if (!movieObj) {
       console.log('Movie not found in the database.')
@@ -323,7 +352,8 @@ exports.movie_details = async (req, res) => {
       movie,
       trailer: trailerUrl || 'Trailer not available',
       overview: movie.overview,
-      id: movieObj._id.toString()
+      id: movieObj._id.toString(),
+      movieObj
     })
   } catch (error) {
     console.error('Error fetching movie or trailer:', error)
