@@ -233,3 +233,193 @@ body {
     display: none;
   }
 }
+
+body{
+  padding: 30px;
+}
+
+.inline{
+  display: flex;
+  justify-content: center;
+}
+
+hr {
+  width: 100%; /* Make the <hr> span full width */
+  border: none; /* Remove default border */
+  height: 2px; /* Set height */
+  background-color: white; /* Set color */
+  margin: 20px 0; /* Add vertical spacing */
+}
+
+/* Body styles */
+body {
+
+  display: flex;
+  flex-direction: column;
+   /* Center align the content */
+  font-family: Arial, sans-serif; /* Set a default font */
+  margin: 0; /* Remove default margin */
+  padding: 20px; /* Add padding */ /* Optional: light background color */
+}
+
+/* Video container */
+.video-container {
+  width: 100%;
+  max-width: 700px; /* Limit video width */
+  margin-bottom: 20px; /* Space between video and description */
+  align-items: center;
+}
+.card{
+background-color: rgb(48, 47, 47);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 30px 0;
+align-items: center;
+}
+
+/* Video element */
+video {
+  width: 100%; /* Responsive video */
+  height: auto; /* Maintain aspect ratio */
+  align-items: center;
+}
+
+/* Description container */
+.description {
+  padding: 0 45px;
+  text-align: left; /* Center align the description */
+  margin: 0; /* Remove default margin */
+  align-items: center;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* The carousel is a wrapper that allows horizontal scrolling */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Each carousel item is the same size and aligned horizontally */
+.carousel-item {
+  flex: 0 0 220px; /* Fixed width to ensure consistent item size */
+  margin: 10px; /* Keep or adjust margin as needed */
+  box-sizing: border-box;
+  display: flex; /* Set display to flex for better alignment */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.carousel-item img {
+  max-width: 100%; /* Allow images to fill the item */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Keep the aspect ratio without cropping */
+  border-radius: 5px;
+}
+/* Arrow buttons for navigation */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  display: block; /* Ensure arrows are initially visible */
+}
+
+.left-arrow {
+  left: 10px; /* Add some spacing from the edge */
+}
+
+.right-arrow {
+  right: 10px; /* Add some spacing from the edge */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212529;
+    color: white;
+}
+
+#imztv {
+    text-decoration: none;
+    color: #F0AD4E;
+    font-weight: 900;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 65px;
+    
+    position: relative;
+}
+
+#signin {
+    
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    
+}
+
+#profileImg {
+    height: 35px;
+    width: auto;
+    border-radius: 50%;
+    /* border: 3px solid;
+    border-color: #F0AD4E; */
+}
+
+#profileName {
+    border: none;
+    color: white;
+}
+
+#inEditImg {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+#nameEditButton {
+    color: #F0AD4E;
+    border-color: #F0AD4E;
+    margin-left: 15px;
+}
+
+#editProfile {
+    margin-left: 15px;
+}
+
+.movieDetail {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#mmm {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+  

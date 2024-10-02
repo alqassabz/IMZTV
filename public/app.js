@@ -1,22 +1,35 @@
-let scrollAmount = 0;
+const arrows = document.querySelectorAll('.arrow')
+const movieLists = document.querySelectorAll('.movie-list')
 
-function scrollRight() {
-  const carousel = document.querySelector('.carousel-track');
-  const scrollMax = carousel.scrollWidth - carousel.clientWidth;
-  
-  if (scrollAmount <= scrollMax) {
-    scrollAmount += 220; // Adjust to match the width of each .carousel-item + margin
-    carousel.style.transform = `translateX(-${scrollAmount}px)`;
-  }
-}
+arrows.forEach((arrow, i) => {
+  const itemNumber = movieLists[i].querySelectorAll('img').length
+  let clickCounter = 0
+  arrow.addEventListener('click', () => {
+    const ratio = Math.floor(window.innerWidth / 270)
 
-function scrollLeft() {
-  const carousel = document.querySelector('.carousel-track');
-  
-  if (scrollAmount > 0) {
-    scrollAmount -= 220; // Adjust to match the width of each .carousel-item + margin
-    carousel.style.transform = `translateX(-${scrollAmount}px)`;
-  }
-}
+    clickCounter++
+    if (itemNumber - (0.5 + clickCounter) + (0.5 - ratio) >= 0) {
+      movieLists[i].style.transform = `translateX(${
+        movieLists[i].computedStyleMap().get('transform')[0].x.value - 300
+      }px)`
+    } else {
+      movieLists[i].style.transform = 'translateX(0)'
+      clickCounter = 0
+    }
+  })
+  console.log(movieLists[i].querySelectorAll('img').length)
+})
 
+//toggle
+
+const ball = document.querySelector('.toggle-ball')
+const items = document.querySelectorAll(
+  '.container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle'
+)
+ball.addEventListener('click', () => {
+  items.forEach((item) => {
+    item.classList.toggle('active')
+  })
+  ball.classList.toggle('active')
+})
 
