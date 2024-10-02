@@ -5,67 +5,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMZ TV</title>
     <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <div class="carousel-container">
-        <button class="carousel-arrow left-arrow" onclick="scrollLeft()">&#10094;</button>
-        <div class="carousel">
-            <div class="carousel-track">
-                <% movies.forEach(function(movie) { %>
-                    <div class="carousel-item">
-                        <a href="/movie/detail?title=<%= movie.title %>">
-                            <img src="<%= movie.poster %>" alt="<%= movie.title %>" />
-                        </a>
-                    </div>
-                <% }); %>
+</head>
+  <body>
+    <div class="container">
+      <div class="content-container">
+          <div class="featured-content"
+              style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('images/bk.jpg');">
+              <img class="featured-title" src="images/14.jpg" alt="">
+              <p class="featured-desc">Ten-year-old Chihiro and her parents end up at an abandoned amusement park inhabited by supernatural beings. Soon, she learns that she must work to free her parents who have been turned into pigs.</p>
+              <button class="featured-button">WATCH</button>
+          </div>
+
+
+          
+        
+
+          <div class="movie-list-container">
+            <h1 class="movie-list-title">NEW RELEASES</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { %>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
             </div>
         </div>
-        <button class="carousel-arrow right-arrow" onclick="scrollRight()">&#10095;</button>
+        
+
+
+        <div class="movie-list-container">
+            <h1 class="movie-list-title">ANIME</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { if(movie.genre === "Anime"){ %>
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }}); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="movie-list-container">
+            <h1 class="movie-list-title">Animated</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { if(movie.genre === "Animated"){ %>
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }}); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <div class="movie-list-container">
+            <h1 class="movie-list-title">ACTION/THRILER</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { if(movie.genre === "Action"){ %>
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }}); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="movie-list-container">
+            <h1 class="movie-list-title">HORROR</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { if(movie.genre === "Horror"){ %>
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }}); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="movie-list-container">
+            <h1 class="movie-list-title">COMEDY</h1>
+            <div class="movie-list-wrapper">
+                <div class="movie-list">
+                    <% movies.forEach(function(movie) { if(movie.genre === "Comedy"){ %>
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="<%= movie.poster %>" alt="<%= movie.title %>">
+                            <span class="movie-list-item-title"><%= movie.title %></span>
+                            <p class="movie-list-item-desc"><%= movie.description %></p>
+                            <a class="movie-list-item-button" href="/movie/detail?title=<%= movie.title %>">Watch</a>
+                        </div>
+                    <% }}); %>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
-    <script>
-     const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
-const nextButton = document.querySelector('.right-arrow');
-const prevButton = document.querySelector('.left-arrow');
-
-let currentIndex = 0;
-
-// Function to move to the next image
-function scrollRight() {
-    if (currentIndex < items.length - 7) {
-        currentIndex++; // Prevent going beyond the last image
-    }
-    updateCarousel();
-}
-
-// Function to move to the previous image
-function scrollLeft() {
-    if (currentIndex > 0) {
-        currentIndex--; // Prevent going before the first image
-    }
-    updateCarousel();
-}
-
-// Function to update the carousel position and arrow visibility
-function updateCarousel() {
-    const itemWidth = items[0].getBoundingClientRect().width + 20; // Adjust for margin
-    const offset = -currentIndex * itemWidth; // Calculate the offset
-    track.style.transform = `translateX(${offset}px)`; // Move the track
-
-    // Show/hide arrows based on current index
-    prevButton.style.display = currentIndex > 0 ? 'block' : 'none'; // Hide left arrow if at the start
-    nextButton.style.display = currentIndex < items.length - 3 ? 'block' : 'none'; // Hide right arrow if at the end
-}
-
-// Optional: Add event listeners for arrow buttons if not using inline onclick
-nextButton.addEventListener('click', scrollRight);
-prevButton.addEventListener('click', scrollLeft);
-
-// Initial visibility of the arrows
-updateCarousel();
-
-    </script>
+</div>
+<script src="/app.js"></script>
 </body>
+
 </html>

@@ -1,22 +1,18 @@
-<h1 id="editProfile">Edit User</h1>
-<form action="/user/update" method="POST">
+<h1 class="edit-user-title">Edit User</h1>
+<form action="/user/update" method="POST" class="edit-user-form">
     <input type="hidden" name="id" value="<%= user._id %>">
     
-    <br>
-
-    <div id="editProfile">
-        <td> <img src="<%= user.avatar %>" id="inEditImg"></td>
-        <td> <h4>Email: <%= user.email %></h4></td>
+    <div class="edit-user-profile">
+        <img src="<%= user.avatar %>" class="edit-user-avatar" alt="User Avatar">
+        <h4 class="edit-user-email">Email: <%= user.email %></h4>
     </div>
-    <div id="editProfile">
-        <h4><label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<%= user.name %>" required ></h4>
+    
+    <div class="edit-user-name">
+        <label for="name" class="edit-user-label">Name:</label>
+        <input type="text" id="name" name="name" class="edit-user-input" value="<%= user.name %>" required>
     </div>
-
-    <br>
-
-    <div>
-        <button type="submit" class="btn btn-outline-primary" id="nameEditButton">Update</button>
+<br>
+    <div class="edit-user-submit">
+        <button type="submit" class="btn btn-outline-primary edit-user-button">Update</button>
     </div>
-
 </form>

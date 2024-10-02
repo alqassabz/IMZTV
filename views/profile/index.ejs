@@ -16,4 +16,30 @@
         
     </tr>
 <% }) %>
+
+
+
 </table> -->
+
+<h1 id="editProfile">Edit User</h1>
+<form action="/user/update" method="POST">
+    <input type="hidden" name="id" value="<%= user._id %>">
+    
+    <br>
+
+    <div id="editProfile">
+        <td> <img src="<%= user.avatar %>" id="inEditImg"></td>
+        <td> <h4>Email: <%= user.email %></h4></td>
+    </div>
+    <div id="editProfile">
+        <h4><label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= user.name %>" required ></h4>
+    </div>
+
+    <br>
+
+    <div>
+        <button type="submit" class="btn btn-outline-primary" id="nameEditButton">Update</button>
+    </div>
+
+</form>

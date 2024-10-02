@@ -10,6 +10,7 @@ const multer = require('multer');
 const path = require('path');
 const formidable = require('formidable');
 const fs = require('fs');
+const { generateKeyPair } = require('crypto');
 
 // Create = HTTP GET and POST
 // Read = HTTP GET
@@ -158,6 +159,7 @@ exports.movie_create_post = async (req, res) => {
           description: movieData.overview,  // Use movieData instead of movie
           poster: fullPosterUrl,  // Store the full URL in the database
           trailer: trailerUrl || null,  // Store the trailer URL if available
+          genre: req.body.genre,
         });
 
         // Save to the database
@@ -207,7 +209,8 @@ exports.movie_get = async (req, res) => {
 
     // Define the trailers directory path inside the public folder
     const trailersDir = path.join(__dirname, '..', 'public', 'trailers');
-    const videoPath = path.join(trailersDir, movie.trailer);
+    // Construct the video path using the movie title and an appropriate extension (e.g., .mp4)
+    const videoPath = path.join(trailersDir, `${movie.title}.mp4`);
     console.log(`Checking for trailer video at: ${videoPath}`);
 
     let trailerPath = null;
@@ -215,7 +218,9 @@ exports.movie_get = async (req, res) => {
     if (fs.existsSync(videoPath)) {
       console.log(`Trailer exists at: ${videoPath}`);
       // Adjust the path for client-side use, relative to the public folder
-      trailerPath = `/trailers/${movie.trailer}`;
+      trailerPath = `/trailers/${movie.title}.mp4`; // Ensure the trailer path is correct
+    } else {
+      console.log(`Trailer not found at: ${videoPath}`);
     }
 
     // Render movie details page and pass the trailer variable

@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMZTV</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/style.css">
-</head>
-<body>      
-    <div class="navbar">
-        <div>
-            <h1> <a id="imztv" href="/">IMZTV</a> </h1>
-        </div>
-        <!-- <a href="/auth/google" class="btn btn-outline-primary" id="signin">Sign in</a> -->
-        
-        <% if (user) { %>
-            <div id="profileBox">
-                <img src="<%= user.avatar %>" id="profileImg">  
-                <a href="/user/update?id=<%= user._id %>" class="btn btn-outline-primary me-2" id="profileName"><%= user.name %></a>
-            </div>
-            <% if (user.email === 'sayedmohamed11577@gmail.com') { %>
-                <div id="adminBox">
-                    <a href="/movie/add" class="btn btn-outline-primary" id="admin">Admin</a>
-                    
-                </div>
-            <% } %>
-            <a href="/logout" class="btn btn-outline-primary" id="signin">Logout</a>
 
-            
-        
-        <% } else { %>
-            <a href="/auth/google" class="btn btn-outline-primary" id="signin">Signin</a>
-        <% } %>
-        
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>IMZ TV</title>
+</head>
+
+<body>
+    <!-- <div class="navbar"> -->
+    <div class="navbar-container">
+        <div class="logo-container">
+            <h1 class="logo">IMZ.TV</h1>
         </div>
-        <nav>
-        
-           
-       
-         </nav>
-         <br>
-    <%- body %>
+        <div class="menu-container">
+            <ul class="menu-list">
+               <a class="noStyle" href="/"><li class="menu-list-item active">Home</li></a> 
+              <% if (user) { %>
+               <a href="/user/update?id=<%= user._id %>" class="noStyle" ><li class="menu-list-item ">Profile</li></a>
+               <% } %>
+               
+               <% if (user) { %>
+                <% if(user.email==="zara.qassab@gmail.com" ||  user.email === 'sayedmohamed11577@gmail.com' || user.email === "isa.al.eid@gmail.com") { %>
+                    <a href="/movie/add" class="noStyle" ><li class="menu-list-item">Add Movie</li></a>
+                    <% }} %>
+                <% if(!user) {%>
+                    <a href="/auth/google" id="signin">
+                        <li class="menu-list-item">Signin</li>
+                    </a>
+                    <% } %>
+                        <% if (user) { %>
+                            <a href="/logout" class="menu-list-item" id="signin">Logout</a>
+                            <% } %>
+
+            </ul>
+        </div>
+        <div class="toggle">
+            <i class="fas fa-moon toggle-icon"></i>
+            <i class="fas fa-sun toggle-icon"></i>
+            <div class="toggle-ball"></div>
+        </div>
+    </div>
+    <!-- </div> -->
+    </div>
+    <div class="sidebar">
+        <a href="/"><i class="left-menu-icon fas fa-home"></i></a>
+        <% if (user) { %>
+            <a href="/user/update?id=<%= user._id %>"><i class="left-menu-icon fas fa-user"></i></a>
+            <% } %>
+                <% if (user) { %>
+                    <% if(user.email==="zara.qassab@gmail.com" ||  user.email === 'sayedmohamed11577@gmail.com' || user.email === "isa.al.eid@gmail.com") { %>
+                        <a href="/movie/add"><i class="left-menu-icon fas fa-plus"></i></a>
+                        <% }} %>
+    </div>
+
+   
+        <%- body %>
+  
+        <script src="/app.js"></script>
 </body>
+
 </html>

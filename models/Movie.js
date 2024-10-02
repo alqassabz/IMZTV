@@ -5,6 +5,7 @@ const movieSchema = mongoose.Schema({
   poster: String,
   description: String,
   trailer: String,
+  genre: String
 },{
   timestamps: true
 })

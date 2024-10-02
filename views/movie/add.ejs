@@ -1,23 +1,25 @@
-<h1>Add Movie</h1>
 
-<form action="/movie/add" method="POST" enctype="multipart/form-data">
-  <div>
-    <label>Title</label>
-    <input type="text" name="name" class="form-control" />
-  </div>
-  <!-- <div>
-      <label>Poster</label>
-      <input type="file" name="poster" class="form-control" /> 
-    </div> -->
-  <div>
-    <label>Movie</label>
-    <input type="file" name="trailer" class="form-control" />
-  </div>
-  <!-- <div>
-      <label>Description</label>
-      <input type="text" name="description" class="form-control" /> 
-    </div> -->
-  <br>
 
-  <button type="submit" class="btn btn-outline-secondary">Add Movie</button>
-</form>
+  <form action="/movie/add" method="POST" enctype="multipart/form-data" class="add-movie-form">
+      <h1 class="add-movie-title">Add Movie</h1>
+      
+      <div class="form-group">
+          <label class="form-label">Title</label>
+          <input type="text" name="name" class="form-control form-input" required />
+      </div>
+
+      <div class="form-group">
+          <label class="form-label">Movie</label>
+          <input type="file" name="trailer" class="form-control form-input" accept="video/*" required />
+      </div>
+
+      <div class="form-group">
+          <label class="form-label">Type</label>
+          <input type="text" name="genre" class="form-control form-input" required />
+      </div>
+      
+      <br>
+      <button type="submit" class="btn add-movie-button">Add Movie</button>
+  </form>
+
+
