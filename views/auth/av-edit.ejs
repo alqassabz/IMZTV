@@ -1,0 +1,22 @@
+<h1>Update Avatar</h1>
+<form action="/user/update-avatar" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<%= user._id %>">
+    
+    <div>
+        <h4>Current Avatar:</h4>
+        <img src="<%= user.image %>" alt="User Avatar" id="currentAvatar" style="max-width: 100px;">
+    </div>
+
+    <div>
+        <label for="image">Upload New Avatar:</label>
+        <input type="file" value="<%= user.image %>" id="image" name="image" accept="image/*" required>
+    </div>rs
+
+    <div>
+        <button type="submit" class="btn btn-outline-primary">Update Avatar</button>
+    </div>
+</form>
+<br>
+<a href="/user/update?id=<%= user._id %>">Back to Edit User</a>
+
+

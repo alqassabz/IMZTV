@@ -77,7 +77,7 @@ app.get('/', async (req, res) => {
 });
 
 // Serve the static movie files first
-app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'));
+// app.use('/movie/files', express.static('/mnt/c/Users/HP/Desktop/Movies'));
 
 // Import movie-related routes
 const movieRoutes = require('./routes/movie'); 
