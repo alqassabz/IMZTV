@@ -1,5 +1,21 @@
+<form
+  action="/movie/add"
+  method="POST"
+  enctype="multipart/form-data"
+  class="add-movie-form"
+>
+  <h1 class="add-movie-title">Add Movie</h1>
+
+  <div class="form-group">
+    <label class="form-label">Title</label>
+    <input type="text" name="name" class="form-control form-input" required />
+  </div>
 
 
+  <div class="form-group">
+    <label class="form-label">Movie</label>
+    <input type="file" name="trailer" class="form-control form-input" />
+  </div>
   <form action="/movie/add" method="POST" enctype="multipart/form-data" class="add-movie-form">
       <h1 class="add-movie-title">Add Movie</h1>
       
@@ -21,5 +37,4 @@
       <br>
       <button type="submit" class="btn add-movie-button">Add Movie</button>
   </form>
-
 
