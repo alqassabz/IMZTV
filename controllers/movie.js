@@ -197,6 +197,16 @@ exports.movie_create_get = (req, res) => {
   res.render('movie/add')
 }
 
+exports.movie_review_get = (req, res) => {
+  Movie.find()
+    .then((movies) => {
+      res.render('movie/review', { movies, id: req.query.id })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
 const movieDir = '/mnt/c/Users/HP/Desktop/Movies' // Path to your movie directory
 
 exports.movie_get = async (req, res) => {

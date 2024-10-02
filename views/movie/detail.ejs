@@ -18,9 +18,8 @@
       <h4 class="movieDetail desc"><i><%= overview %></i></h4>
 
       <br />
-      <% // Extract video ID from the trailer URL const videoId =
-      trailer.split('v=')[1].split('&')[0]; // Construct the embed URL const
-      embedUrl = `https://www.youtube.com/embed/${videoId}`; %>
+      <% const videoId = trailer.split('v=')[1].split('&')[0]; embedUrl =
+      `https://www.youtube.com/embed/${videoId}`; %>
       <div class="movieDetail">
         <iframe
           width="560"
@@ -33,8 +32,8 @@
       </div>
       <br /><br />
       <div class="inline">
-        <a class="btn btn-outline-dark" href="/">Go Back</a>&emsp;
-        <a class="btn btn-outline-dark" href="/movie/video?id=<%=id %>"
+        <a class="btn btn-outline-warning" href="/">Go Back</a>&emsp;
+        <a class="btn btn-outline-warning" href="/movie/video?id=<%=id %>"
           >Watch Movie</a
         >
       </div>

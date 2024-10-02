@@ -1,26 +1,25 @@
-const express = require('express');
+const express = require('express')
 
 const insurelogedin = require('../config/insurelogedin')
 
-const router = express.Router();
+const router = express.Router()
 
-router.use(express.urlencoded({extended: true}))
+router.use(express.urlencoded({ extended: true }))
 const axios = require('axios')
 
 // Controller
-const movieCtrl = require("../controllers/movie")
+const movieCtrl = require('../controllers/movie')
 
 // Routes
-router.get('/video',insurelogedin, movieCtrl.movie_get) 
-router.get("/add", movieCtrl.movie_create_get);
-router.post("/add", movieCtrl.movie_create_post);
-router.get("/index", movieCtrl.movie_index_get)
-router.get('/detail', insurelogedin, movieCtrl.movie_details) 
+router.get('/video', insurelogedin, movieCtrl.movie_get)
+router.get('/add', movieCtrl.movie_create_get)
+router.get('/review', movieCtrl.movie_review_get)
+router.post('/add', movieCtrl.movie_create_post)
+router.get('/index', movieCtrl.movie_index_get)
+router.get('/detail', insurelogedin, movieCtrl.movie_details)
 // router.get('/movies/:title', async (req, res) => {
 //   // ...
 //   res.render('movies', { title: titles[0].clear_title, streamingOptions });
 // });
 
-
-
-module.exports = router;
+module.exports = router
