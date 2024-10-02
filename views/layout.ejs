@@ -23,7 +23,9 @@
         <div class="menu-container">
             <ul class="menu-list">
                <a class="noStyle" href="/"><li class="menu-list-item active">Home</li></a> 
+              <% if (user) { %>
                <a href="/user/update?id=<%= user._id %>" class="noStyle" ><li class="menu-list-item ">Profile</li></a>
+               <% } %>
                
                <% if (user) { %>
                 <% if(user.email==="zara.qassab@gmail.com" ||  user.email === 'sayedmohamed11577@gmail.com' || user.email === "isa.al.eid@gmail.com") { %>
