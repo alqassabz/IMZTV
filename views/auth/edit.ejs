@@ -1,18 +1,35 @@
-<h1 class="edit-user-title">Edit User</h1>
-<form action="/user/update" method="POST" class="edit-user-form">
+
+<form action="/user/update" method="POST" enctype="multipart/form-data" class="add-movie-form">
     <input type="hidden" name="id" value="<%= user._id %>">
-    
-    <div class="edit-user-profile">
-        <img src="<%= user.avatar %>" class="edit-user-avatar" alt="User Avatar">
-        <h4 class="edit-user-email">Email: <%= user.email %></h4>
+    <h1 class="add-movie-title">Edit User</h1>
+    <br>
+
+    <div class="form-group">
+        <% if(user.image===null) {%>
+            <a href="/user/update-avatar?id=<%= user._id %>"><img src="<%= user.avatar %>" id="inEditImg"> </a> 
+            <%}else{%>
+                <a href="/user/update-avatar?id=<%= user._id %>"><img src="/images/<%= user.image %>" id="inEditImg"> </a> 
+            <%}%>
+    </div>
+
+    <div class="form-group">
+        <td> <h4>Email: <%= user.email %></h4></td>
+    </div>
+
+    <div class="form-group">
+        <h4><label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" value="<%= user.name %>" required class="form-control form-input"></h4>
+    </div>
+
+    <div class="form-group"></div>
+        <h4><label for="avatar" class="form-label">Change Avatar:</label>
+        <input type="file" name="image" value="<%= user.image %>" class="form-control form-input"></h4>
+    </div>
+
+    <br>
+
+    <div>
+        <input type="submit" class="btn add-movie-button" value="Submit" />
     </div>
     
-    <div class="edit-user-name">
-        <label for="name" class="edit-user-label">Name:</label>
-        <input type="text" id="name" name="name" class="edit-user-input" value="<%= user.name %>" required>
-    </div>
-<br>
-    <div class="edit-user-submit">
-        <button type="submit" class="btn btn-outline-primary edit-user-button">Update</button>
-    </div>
 </form>
