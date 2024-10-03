@@ -28,10 +28,10 @@
               <% if (user) { %>
                 <% if(user.image===null) {%>
                     <img src="<%= user.avatar %>" class="menu-list-item" id="profileImg"> 
-                    <a href="/user/update?id=<%= user._id %>"><li class="menu-list-item"><%= user.name %></li></a>
+                    <a href="/user/update?id=<%= user._id %>" class="noStyle"><li class="menu-list-item"><%= user.name %></li></a>
                     <%}else{%>
                         <img src="/images/<%= user.image %>" class="menu-list-item" id="profileImg">
-                        <a href="/user/update?id=<%= user._id %>"><li class="menu-list-item"><%= user.name %></li></a>
+                        <a href="/user/update?id=<%= user._id %>" class="noStyle"><li class="menu-list-item"><%= user.name %></li></a>
                     <%}%>
                <% } %>
                
