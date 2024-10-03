@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css">
 
 
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
     <title>IMZ TV</title>
 </head>
 
@@ -59,19 +61,28 @@
     <div class="sidebar">
         <a href="/"><i class="left-menu-icon fas fa-home"></i></a>
         <% if (user) { %>
-            <a href="/user/update?id=<%= user._id %>"><i class="left-menu-icon fas fa-user" ></i></a>
-            <a href="/movie/review?id=<%= user._id %>"><i class="left-menu-icon fas fa-star" ></i></a>
+            <a href="/user/update?id=<%= user._id %>"><i class="left-menu-icon fas fa-user"></i></a>
+            <a href="/movie/review?id=<%= user._id %>"><i class="left-menu-icon fas fa-star"></i></a>
+            <a href="/movie/delete?id=<%= user._id %>"><i class="left-menu-icon fas fa-trash"></i></a>
             <% } %>
                 <% if (user) { %>
-                    <% if(user.email==="zara.qassab@gmail.com" ||  user.email === 'sayedmohamed11577@gmail.com' || user.email === "isa.al.eid@gmail.com") { %>
+                    <% if(user.email==="zara.qassab@gmail.com" || user.email==='sayedmohamed11577@gmail.com' ||
+                        user.email==="isa.al.eid@gmail.com" ) { %>
                         <a href="/movie/add"><i class="left-menu-icon fas fa-plus"></i></a>
                         <% }} %>
     </div>
 
-   
-        <%- body %>
-  
+
+    <%- body %>
+
         <script src="/app.js"></script>
 </body>
+<footer class="fixed-bottom">
+    IMZ.TV © 2024 <br>
+    <a href="mailto:zara.qassab@gmail.com">zara.qassab@gmail.com</a> <br>
+    <a href="mailto:isa.al.eid@gmail.com">isa.al.eid@gmail.com</a> <br>
+    <a href="mailto:sayedmohamed11577@gmail.com">sayedmohamed11577@gmail.com</a>
+</footer>
+
 
 </html>
