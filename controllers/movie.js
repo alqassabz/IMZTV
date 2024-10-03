@@ -206,6 +206,30 @@ exports.movie_review_get = (req, res) => {
       console.log(err)
     })
 }
+
+
+exports.movie_delete_get = (req, res) => {
+  Movie.find()
+    .then((movies) => {
+      res.render('movie/delete', { movies, id: req.query.id })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+exports.movie_deleted_get = (req, res)=>{
+  console.log(req.query.id)
+  Movie.findByIdAndDelete(req.query.id)
+  .then(()=>{
+    res.redirect("/movie/delete")
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+
 exports.movie_review_post = async (req, res) => {
   try {
     console.log('req.body ', req.body)

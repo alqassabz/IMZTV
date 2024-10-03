@@ -11,6 +11,8 @@ body {
 
   background-color: #212529;
   color: white;
+  min-height: 1000px;
+
 }
 .add-movie {
   padding: 100px;
@@ -615,3 +617,46 @@ video {
 h2 {
   margin-left: 130px;
 }
+
+.deleteTable{
+  width: 100%;
+  margin-left: 70px;
+}
+
+.deleteTitle{
+  margin-left: 270px;
+}
+
+
+
+footer{
+  background-color: #151515; /* Dark background */
+  color: #ffffff; /* White text */
+  padding: 20px 0; /* Space above and below */
+  font-family: Arial, sans-serif; /* Font style */
+  border-top: 2px solid #f1c40f; /* Thin yellow border on top */
+  margin-top: 40px; /* Space above footer */
+  display: flex; /* Flexbox to align items */
+  justify-content: center; /* Center align all items horizontally */
+  gap: 20px; /* Add space between items */
+
+  }
+  
+  footer a {
+    color: #f1c40f; /* Yellow color for email links */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #ffffff; /* White text when hovering over the email */
+  }
+
+  .fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  
