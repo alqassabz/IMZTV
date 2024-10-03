@@ -5,25 +5,22 @@ body {
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
-   /* Center align the content */
+  /* Center align the content */
   font-family: Arial, sans-serif; /* Set a default font */
   margin: 0; /* Remove default margin */
-  
+
   background-color: #212529;
   color: white;
 }
-.add-movie{
+.add-movie {
   padding: 100px;
 }
 
-
-
-
-form{
+form {
   margin-left: 200px;
   margin-top: 50px;
 }
-.inlinebtn{
+.inlinebtn {
   display: inline-block; /* Ensure it doesn't take the full width */
   width: 100px; /* Automatically adjust to the content */
   padding: 10px 20px; /* Add padding for better appearance */
@@ -35,9 +32,7 @@ form{
   margin-top: 10px; /* Spacing above the button */
   margin-left: 100px;
   color: black;
-
 }
-
 
 /* Header Styles */
 .edit-user-title {
@@ -45,7 +40,7 @@ form{
   font-size: 2.5em;
   margin-top: 25px;
   margin-bottom: 20px;
-  color: #FFD700; /* Gold color for the title */
+  color: #ffd700; /* Gold color for the title */
 }
 
 /* Profile Edit Section */
@@ -60,7 +55,7 @@ form{
   width: 100px; /* Fixed size for the avatar */
   height: 100px;
   border-radius: 50%; /* Circular avatar */
-  border: 2px solid #FFD700; /* Gold border */
+  border: 2px solid #ffd700; /* Gold border */
   margin-right: 20px;
 }
 
@@ -69,8 +64,9 @@ form{
 }
 
 /* Form Styles */
-.edit-user-form, .add-movie-form {
-  background-color: #1E1E1E; /* Darker background for the form */
+.edit-user-form,
+.add-movie-form {
+  background-color: #1e1e1e; /* Darker background for the form */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
   width: 500px;
@@ -81,7 +77,7 @@ form{
   display: block; /* Block display for labels */
   font-weight: bold;
   margin-bottom: 5px;
-  color: #FFD700; /* Gold color for labels */
+  color: #ffd700; /* Gold color for labels */
 }
 
 .edit-user-input {
@@ -90,12 +86,12 @@ form{
   border: 1px solid #555; /* Dark border */
   border-radius: 5px; /* Slightly rounded corners */
   background-color: #333; /* Dark input background */
-  color: #EAEAEA; /* Light text color */
+  color: #eaeaea; /* Light text color */
   transition: border 0.3s; /* Transition for border color */
 }
 
 .edit-user-input:focus {
-  border-color: #FFD700; /* Gold border on focus */
+  border-color: #ffd700; /* Gold border on focus */
   outline: none; /* Remove outline */
 }
 
@@ -103,10 +99,10 @@ form{
 .edit-user-button {
   display: inline-block;
   padding: 10px 20px;
-  border: 2px solid #FFD700; /* Gold border for button */
+  border: 2px solid #ffd700; /* Gold border for button */
   border-radius: 5px; /* Rounded corners */
   background-color: transparent; /* Transparent background */
-  color: #FFD700; /* Gold text color */
+  color: #ffd700; /* Gold text color */
   text-align: center;
   text-decoration: none; /* Remove underline */
   cursor: pointer; /* Pointer cursor */
@@ -114,7 +110,7 @@ form{
 }
 
 .edit-user-button:hover {
-  background-color: #FFD700; /* Gold background on hover */
+  background-color: #ffd700; /* Gold background on hover */
   color: #121212; /* Dark text color on hover */
 }
 
@@ -122,18 +118,16 @@ form{
   background-color: transparent; /* No background */
 }
 
-
 .form-control {
   width: 80%; /* Make the input fields full width */
   padding: 10px; /* Add padding */
   margin-bottom: 10px; /* Space between fields */
 }
 
-.noStyle{
+.noStyle {
   color: yellow;
   text-decoration: none;
 }
-
 
 .navbar {
   width: 100%;
@@ -198,7 +192,7 @@ form{
   position: relative;
 }
 
-.desc{
+.desc {
   margin-left: 80px;
   margin-right: 75px;
 }
@@ -371,13 +365,12 @@ form{
   }
 }
 
-
 /* Content Styles */
 .add-movie-content {
   max-width: 600px; /* Limit the width of the form */
   margin: 0 auto; /* Center the form */
   padding: 20px;
-  background-color: #1E1E1E; /* Darker background for the form */
+  background-color: #1e1e1e; /* Darker background for the form */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
@@ -387,7 +380,7 @@ form{
   text-align: center;
   font-size: 2em;
   margin-bottom: 20px;
-  color: #FFD700; /* Gold color for title */
+  color: #ffd700; /* Gold color for title */
 }
 
 /* Form Group Styles */
@@ -400,7 +393,7 @@ form{
   display: block; /* Block display for labels */
   font-weight: bold;
   margin-bottom: 5px;
-  color: #FFD700; /* Gold color for labels */
+  color: #ffd700; /* Gold color for labels */
 }
 
 /* Input Styles */
@@ -410,12 +403,12 @@ form{
   border: 1px solid #555; /* Dark border */
   border-radius: 5px; /* Slightly rounded corners */
   background-color: #333; /* Dark input background */
-  color: #EAEAEA; /* Light text color */
+  color: #eaeaea; /* Light text color */
   transition: border 0.3s; /* Transition for border color */
 }
 
 .form-input:focus {
-  border-color: #FFD700; /* Gold border on focus */
+  border-color: #ffd700; /* Gold border on focus */
   outline: none; /* Remove outline */
 }
 
@@ -423,10 +416,10 @@ form{
 .add-movie-button {
   display: inline-block;
   padding: 10px 20px;
-  border: 2px solid #FFD700; /* Gold border for button */
+  border: 2px solid #ffd700; /* Gold border for button */
   border-radius: 5px; /* Rounded corners */
   background-color: transparent; /* Transparent background */
-  color: #FFD700; /* Gold text color */
+  color: #ffd700; /* Gold text color */
   text-align: center;
   text-decoration: none; /* Remove underline */
   cursor: pointer; /* Pointer cursor */
@@ -434,14 +427,11 @@ form{
 }
 
 .add-movie-button:hover {
-  background-color: #FFD700; /* Gold background on hover */
+  background-color: #ffd700; /* Gold background on hover */
   color: #121212; /* Dark text color on hover */
 }
 
-
-
-
-.inline{
+.inline {
   display: flex;
   justify-content: center;
 }
@@ -450,11 +440,9 @@ hr {
   width: 100%; /* Make the <hr> span full width */
   border: none; /* Remove default border */
   height: 2px; /* Set height */
-  
+
   margin: 20px 0; /* Add vertical spacing */
 }
-
-
 
 /* Video container */
 .video-container {
@@ -462,14 +450,6 @@ hr {
   max-width: 700px; /* Limit video width */
   margin-bottom: 20px; /* Space between video and description */
   align-items: center;
-}
-.card{
-background-color: rgb(48, 47, 47);
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 30px 0;
-align-items: center;
 }
 
 /* Video element */
@@ -544,70 +524,94 @@ video {
   right: 10px; /* Add some spacing from the edge */
 }
 
-
 #imztv {
-    text-decoration: none;
-    color: #F0AD4E;
-    font-weight: 900;
+  text-decoration: none;
+  color: #f0ad4e;
+  font-weight: 900;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 65px;
-    
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 65px;
+
+  position: relative;
 }
 
 #signin {
-    
-    color: #F0AD4E;
-    border-color: #F0AD4E;
-    
+  color: #f0ad4e;
+  border-color: #f0ad4e;
 }
 
 #profileImg {
-    height: 35px;
-    width: auto;
-    border-radius: 50%;
-    /* border: 3px solid;
+  height: 35px;
+  width: auto;
+  border-radius: 50%;
+  /* border: 3px solid;
     border-color: #F0AD4E; */
 }
 
 #profileName {
-    border: none;
-    color: white;
+  border: none;
+  color: white;
 }
 
 #inEditImg {
-    height: 100px;
-    width: auto;
-    border-radius: 50%;
-    margin-left: 15px;
+  height: 100px;
+  width: auto;
+  border-radius: 50%;
+  margin-left: 15px;
 }
 
 #nameEditButton {
-    color: #F0AD4E;
-    border-color: #F0AD4E;
-    margin-left: 15px;
+  color: #f0ad4e;
+  border-color: #f0ad4e;
+  margin-left: 15px;
 }
 
 #editProfile {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .movieDetail {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 #mmm {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-  
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 85%;
+  margin-left: 110px;
+}
+
+.review-card {
+  margin-left: 20px; /* Adjust as per the required margin */
+  background-color: #4a4b4b; /* Light background to match Bootstrap theme */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #d4cece;
+}
+
+.card-footer {
+  text-align: right;
+}
+h2 {
+  margin-left: 130px;
+}

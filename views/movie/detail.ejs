@@ -39,4 +39,25 @@
       </div>
     </body>
   </div>
+  <div>
+    <h2>Reviews</h2>
+
+    <% if (movieObj.reviews && movieObj.reviews.length > 0) { %>
+    <div class="reviews-container">
+      <% movieObj.reviews.forEach((review) => { %>
+      <div class="card review-card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= review.name %></h5>
+          <p class="card-text"><%= review.review %></p>
+          <p class="card-footer text-muted">
+            <small><%= review.createdAt.toDateString() %></small>
+          </p>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <p>No reviews yet. Be the first to add a review!</p>
+    <% } %>
+  </div>
 </html>
