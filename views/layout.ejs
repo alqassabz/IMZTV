@@ -24,36 +24,29 @@
         </div>
         <div class="menu-container">
             <ul class="menu-list">
-                <a class="noStyle" href="/">
-                    <li class="menu-list-item active">Home</li>
-                </a>
-                <% if (user) { %>
-                    <a href="/user/update?id=<%= user._id %>" class="noStyle">
-                        <li class="menu-list-item ">Profile</li>
+               <a class="noStyle" href="/"><li class="menu-list-item active">Home</li></a> 
+              <% if (user) { %>
+                <% if(user.image===null) {%>
+                    <img src="<%= user.avatar %>" class="menu-list-item" id="profileImg"> 
+                    <a href="/user/update?id=<%= user._id %>"><li class="menu-list-item"><%= user.name %></li></a>
+                    <%}else{%>
+                        <img src="/images/<%= user.image %>" class="menu-list-item" id="profileImg">
+                        <a href="/user/update?id=<%= user._id %>"><li class="menu-list-item"><%= user.name %></li></a>
+                    <%}%>
+               <% } %>
+               
+               <% if (user) { %>
+                <% if(user.email==="zara.qassab@gmail.com" ||  user.email === 'sayedmohamed11577@gmail.com' || user.email === "isa.al.eid@gmail.com") { %>
+                    <a href="/movie/add" class="noStyle" ><li class="menu-list-item">Add Movie</li></a>
+                    <% }} %>
+                <% if(!user) {%>
+                    <a href="/auth/google" id="signin">
+                        <li class="menu-list-item">Signin</li>
                     </a>
                     <% } %>
-
                         <% if (user) { %>
-                            <% if(user.email==="zara.qassab@gmail.com" || user.email==='sayedmohamed11577@gmail.com' ||
-                                user.email==="isa.al.eid@gmail.com" ) { %>
-                                <a href="/movie/add" class="noStyle">
-                                    <li class="menu-list-item">Add Movie</li>
-                                </a>
-                                <a href="/movie/delete?id=<%= user._id %>" class="noStyle">
-                                    <li class="menu-list-item">Delete Movie</li>
-                                </a>
-                                <% }} %>
-                                    <% if(!user) {%>
-                                        <a href="/auth/google" id="signin">
-                                            <li class="menu-list-item">Signin</li>
-                                        </a>
-                                        <% } %>
-                                            <% if (user) { %>
-                                                <a href="/movie/review?id=<%= user._id %>" class="noStyle">
-                                                        <li class="menu-list-item">Add Movie</li>
-                                                    </a>
-                                                <a href="/logout" class="menu-list-item" id="signin">Logout</a>
-                                                <% } %>
+                            <a href="/logout" class="menu-list-item" id="signin">Logout</a>
+                            <% } %>
 
             </ul>
         </div>
