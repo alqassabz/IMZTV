@@ -67,7 +67,10 @@
 
 ### ***Future Updates***
 
-- [ ] Add a comment section for users to discuss movies.
+- [ ] Allow Admins to edit and delete reviews.
+- [ ] Allow movied to be viewed from a third part api instead of being uploaded by the admin
+
+      
  ### ***More features will be added in future updates.***
 ***
 
