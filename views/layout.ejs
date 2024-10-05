@@ -63,12 +63,13 @@
         <% if (user) { %>
             <a href="/user/update?id=<%= user._id %>"><i class="left-menu-icon fas fa-user"></i></a>
             <a href="/movie/review?id=<%= user._id %>"><i class="left-menu-icon fas fa-star"></i></a>
-            <a href="/movie/delete?id=<%= user._id %>"><i class="left-menu-icon fas fa-trash"></i></a>
+            
             <% } %>
                 <% if (user) { %>
                     <% if(user.email==="zara.qassab@gmail.com" || user.email==='sayedmohamed11577@gmail.com' ||
                         user.email==="isa.al.eid@gmail.com" ) { %>
                         <a href="/movie/add"><i class="left-menu-icon fas fa-plus"></i></a>
+                        <a href="/movie/delete?id=<%= user._id %>"><i class="left-menu-icon fas fa-trash"></i></a>
                         <% }} %>
     </div>
 
